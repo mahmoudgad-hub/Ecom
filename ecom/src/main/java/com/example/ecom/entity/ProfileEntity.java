@@ -1,6 +1,7 @@
 package com.example.ecom.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,13 +16,12 @@ public class ProfileEntity {
 
     @Id
     @Column(name = "PROFILE_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USER_SEQ_GENERATOR")
-    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "ECOM_USERS_TAB_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "PROFILE_SEQ_GENERATOR")
+    @SequenceGenerator(name = "PROFILE_SEQ_GENERATOR", sequenceName = "HR.ECOM_PROFILE_TAB_SEQ", allocationSize = 1)
     private Long profileId;
 
-
-    @Column(name = "email")
-    private String email;
+    @Column(name = "USER_ID")
+    private Long userId;
 
     private String fullName;
 
@@ -34,7 +34,7 @@ public class ProfileEntity {
     private Long balanceValue;
 
     @Column(name = "GEN_NOTIFICATION")
-    private boolean isEnabled;
+    private boolean isGenNotification;
     @Column(name = "SOUND")
     private boolean isSound;
     @Column(name = "VIBRATE")
@@ -53,6 +53,12 @@ public class ProfileEntity {
     private boolean isNServiceAvailable;
     @Column(name = "N_TIPS_AVAILABLE")
     private boolean isNTipsAvailable;
+
+
+//    @OneToOne
+//    @JoinColumn(name = "PROFILE_USER_ID", referencedColumnName = "USER_ID", unique = true)
+//    @JsonBackReference
+//    private UserEntity userEntity;
 
 }
 

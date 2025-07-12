@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(value = UserNotFoundException.class)
-    @ResponseStatus(HttpStatus.OK)
+    //@ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public @ResponseBody ErrorResponse handleException(UserNotFoundException ex) {
         return new ErrorResponse(HttpStatus.NOT_FOUND.value(), ex.getMessage());
     }

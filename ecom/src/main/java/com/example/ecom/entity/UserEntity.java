@@ -1,12 +1,12 @@
 package com.example.ecom.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.naming.factory.SendMailFactory;
 
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "ECOM_USERS_TAB",schema = "hr")
@@ -14,9 +14,9 @@ import java.util.Date;
 @Getter
 public class UserEntity {
     @Id
-    @Column(name = "USER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USER_SEQ_GENERATOR")
-    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "ECOM_USERS_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "hr.ECOM_USERS_TAB_SEQ", allocationSize = 1)
+    @Column(name = "USER_ID")
     private Long userId;
 
     @Column(name = "email")
@@ -32,5 +32,15 @@ public class UserEntity {
     private boolean isAccountNonExpired;
 
     private Date lastLoginDate;
+
+//    @OneToOne(mappedBy = "userEntity", cascade = CascadeType.ALL , orphanRemoval = true)
+//     @JsonManagedReference
+//     private ProfileEntity profileEntity;
+
+
+
+    // private List<ProfileEntity> profileEntity = new ArrayList<>();
+    //private Set<ProfileEntity> profileEntity = new HashSet<>();
+
 
 }

@@ -20,20 +20,44 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
-    private UserEntity mapDtoToEntity(UserDto userDto){
+    private UserEntity userMapDtoToEntity(UserDto userDto){
         UserEntity userEntity =  new UserEntity();
+
         userEntity.setEmail(userDto.getEmail());
         userEntity.setPassword(userDto.getPassword());
         userEntity.setEnabled(userDto.isEnabled());
         userEntity.setAccountNonLocked(userDto.isAccountNonLocked());
         userEntity.setAccountNonExpired(userDto.isAccountNonExpired());
         userEntity.setLastLoginDate(userDto.getLastLoginDate());
+
+//        if (userEntity.getProfileEntity() != null) {
+//            userEntity.getProfileEntity().setFullName(userDto.getProfileDto().getFullName());
+//            userEntity.getProfileEntity().setDateOfBirth(userDto.getProfileDto().getDateOfBirth());
+//            userEntity.getProfileEntity().setPhoneNumber(userDto.getProfileDto().getPhoneNumber());
+//            userEntity.getProfileEntity().setGender(userDto.getProfileDto().getGender());
+//            userEntity.getProfileEntity().setBalanceValue(userDto.getProfileDto().getBalanceValue());
+//            userEntity.getProfileEntity().setGenNotification(userDto.getProfileDto().isGenNotification());
+//            userEntity.getProfileEntity().setSound(userDto.getProfileDto().isSound());
+//            userEntity.getProfileEntity().setVibrate(userDto.getProfileDto().isVibrate());
+//            userEntity.getProfileEntity().setSpecialOffers(userDto.getProfileDto().isSpecialOffers());
+//            userEntity.getProfileEntity().setPromoDiscount(userDto.getProfileDto().isPromoDiscount());
+//            userEntity.getProfileEntity().setPayments(userDto.getProfileDto().isPayments());
+//            userEntity.getProfileEntity().setCashBack(userDto.getProfileDto().isCashBack());
+//            userEntity.getProfileEntity().setAppUpdate(userDto.getProfileDto().isAppUpdate());
+//            userEntity.getProfileEntity().setNServiceAvailable(userDto.getProfileDto().isNServiceAvailable());
+//            userEntity.getProfileEntity().setNTipsAvailable(userDto.getProfileDto().isNTipsAvailable());
+//
+//
+//
+//        }
+
+
         return userEntity;
     }
 
     public Long  create(UserDto userDto){
 
-        UserEntity userEntity = mapDtoToEntity(userDto);
+        UserEntity userEntity = userMapDtoToEntity(userDto);
         userRepo.save(userEntity);
         return userEntity.getUserId();
 
@@ -43,7 +67,7 @@ public class UserService {
         Optional<UserEntity> userEntityOptional= userRepo.findById(userId);
         if(userEntityOptional.isEmpty()){
             //TODO: add exception handler
-           throw new UserNotFoundException("Test");
+           throw new UserNotFoundException("NO DATA FOUND USER");
 
         }else{
             return userEntityOptional.get();

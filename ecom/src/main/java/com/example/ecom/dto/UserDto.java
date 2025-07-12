@@ -15,4 +15,5 @@ public class UserDto  {
     private boolean isAccountNonExpired;
     private Date lastLoginDate;
 
+   // private ProfileDto  ProfileDto;
 }

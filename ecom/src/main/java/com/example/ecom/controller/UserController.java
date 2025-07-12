@@ -27,11 +27,13 @@ public class UserController {
 //    }
     @GetMapping("")
     public List<UserEntity> getAll(){
+
         return userService.getuserall();
     }
 
     @PostMapping("")
     public Long createUser(@RequestBody UserDto userDto){
+
         return userService.create(userDto);
     }
     @DeleteMapping("/{userId}")
