@@ -16,7 +16,7 @@ public class UserEntity {
     @Id
     @Column(name = "USER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USER_SEQ_GENERATOR")
-    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "A234491B.GEN_USERS_TAB1_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "ECOM_USERS_TAB_SEQ", allocationSize = 1)
     private Long userId;
 
     @Column(name = "email")
