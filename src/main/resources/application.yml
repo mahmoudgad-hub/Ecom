@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: ecom
+  datasource:
+        url: jdbc:oracle:thin:@//localhost:1521/orcl
+        username: hr
+        password: hr
+        driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
+#    username: A234491B
+#    password: XFS934PK5R2X
+#    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    show-sql: true
+
+
+server:
+  port: 8080
+
+twilio:
+  account:
+    sid: ACbfd97d6d8a249d013fdc77d71dcd1d06
+  auth:
+    token: 5319ed08953aad8e6cc6102db0d389f6
+  whatsapp:
+    from: whatsapp:+14155238886
+
+
+#security:
+#  jwt:
+#    secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+#   expiration-time: 3600000  # 1 hour in milliseconds
+#
+#logging:
+#  level:
+#    org.springframework: DEBUG
+
