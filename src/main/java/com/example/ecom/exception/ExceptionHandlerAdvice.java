@@ -20,9 +20,9 @@ public class ExceptionHandlerAdvice {
     }
 
     @ExceptionHandler(value = UserExistException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
     public @ResponseBody ErrorResponse handleException(UserExistException ex) {
-        return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
+        return new ErrorResponse(HttpStatus.FORBIDDEN.value(), ex.getMessage());
     }
 
     @ExceptionHandler(value = RuntimeException.class)
@@ -30,10 +30,6 @@ public class ExceptionHandlerAdvice {
     public @ResponseBody ErrorResponse handleException(RuntimeException ex) {
         return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), ex.getMessage());
     }
-
- ///
-
-
 
     @ExceptionHandler(ValidationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
