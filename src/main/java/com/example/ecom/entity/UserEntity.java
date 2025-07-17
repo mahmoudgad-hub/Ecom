@@ -13,14 +13,14 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Entity
-@Table(name = "ECOM_USERS_TAB",schema = "A234491B")
+@Table(name = "ECOM_USERS_TAB",schema = "hr")
 @EntityListeners(UserAuditListener.class)
 @Setter
 @Getter
 public class UserEntity extends AuditEntity {
     @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USER_SEQ_GENERATOR")
-    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "A234491B.ECOM_USERS_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "hr.ECOM_USERS_TAB_SEQ", allocationSize = 1)
     @Column(name = "USER_ID")
     private Long userId;
 
@@ -30,6 +30,9 @@ public class UserEntity extends AuditEntity {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNumber;
 
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isEnabled;

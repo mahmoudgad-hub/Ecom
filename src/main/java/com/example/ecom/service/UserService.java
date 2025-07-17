@@ -2,6 +2,7 @@ package com.example.ecom.service;
 
 import com.example.ecom.dto.UserDto;
 import com.example.ecom.entity.UserEntity;
+import com.example.ecom.exception.ValidationException;
 import com.example.ecom.exception.user.UserExistException;
 import com.example.ecom.exception.user.UserNotFoundException;
 import com.example.ecom.repository.UserRepo;
@@ -11,7 +12,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -25,32 +28,11 @@ public class UserService {
 
         userEntity.setEmail(userDto.getEmail());
         userEntity.setPassword(userDto.getPassword());
+        userEntity.setPhoneNumber(userDto.getPhoneNumber());
         userEntity.setIsEnabled(userDto.getIsEnabled());
         userEntity.setIsAccountNonLocked(userDto.getIsAccountNonLocked());
         userEntity.setIsAccountNonExpired(userDto.getIsAccountNonExpired());
         userEntity.setLastLoginDate(userDto.getLastLoginDate());
-
-//        if (userEntity.getProfileEntity() != null) {
-//            userEntity.getProfileEntity().setFullName(userDto.getProfileDto().getFullName());
-//            userEntity.getProfileEntity().setDateOfBirth(userDto.getProfileDto().getDateOfBirth());
-//            userEntity.getProfileEntity().setPhoneNumber(userDto.getProfileDto().getPhoneNumber());
-//            userEntity.getProfileEntity().setGender(userDto.getProfileDto().getGender());
-//            userEntity.getProfileEntity().setBalanceValue(userDto.getProfileDto().getBalanceValue());
-//            userEntity.getProfileEntity().setGenNotification(userDto.getProfileDto().isGenNotification());
-//            userEntity.getProfileEntity().setSound(userDto.getProfileDto().isSound());
-//            userEntity.getProfileEntity().setVibrate(userDto.getProfileDto().isVibrate());
-//            userEntity.getProfileEntity().setSpecialOffers(userDto.getProfileDto().isSpecialOffers());
-//            userEntity.getProfileEntity().setPromoDiscount(userDto.getProfileDto().isPromoDiscount());
-//            userEntity.getProfileEntity().setPayments(userDto.getProfileDto().isPayments());
-//            userEntity.getProfileEntity().setCashBack(userDto.getProfileDto().isCashBack());
-//            userEntity.getProfileEntity().setAppUpdate(userDto.getProfileDto().isAppUpdate());
-//            userEntity.getProfileEntity().setNServiceAvailable(userDto.getProfileDto().isNServiceAvailable());
-//            userEntity.getProfileEntity().setNTipsAvailable(userDto.getProfileDto().isNTipsAvailable());
-//
-//
-//
-//        }
-
 
         return userEntity;
     }
@@ -60,6 +42,7 @@ public class UserService {
 
         userDto.setEmail(userEntity.getEmail());
         userDto.setPassword(userEntity.getPassword());
+        userDto.setPhoneNumber(userEntity.getPhoneNumber());
         userDto.setIsEnabled(userEntity.getIsEnabled());
         userDto.setIsAccountNonLocked(userEntity.getIsAccountNonLocked());
         userDto.setIsAccountNonExpired(userEntity.getIsAccountNonExpired());
@@ -67,23 +50,12 @@ public class UserService {
         return userDto;
     }
 
-    public Long  create(UserDto userDto){
-
-        UserEntity userEntity = userMapDtoToEntity(userDto);
-        userRepo.save(userEntity);
-        return userEntity.getUserId();
-
-    }
-
     public UserDto  readById(Long userId) {
         Optional<UserEntity> userEntityOptional= userRepo.findById(userId);
-
         if(userEntityOptional.isEmpty()){
             //TODO: add exception handler
            throw new UserNotFoundException("NO DATA FOUND USER");
-
         }else{
-
             return userMapEntityToDto(userEntityOptional.get());
         }
     }
@@ -143,6 +115,45 @@ public class UserService {
         }
     }
 
+
+    public void create(UserDto userDto){
+        validateRequest(userDto);
+        UserEntity userEntity = userMapDtoToEntity(userDto);
+        validateBusiness(userEntity);
+        userRepo.save(userEntity);
+        // return userEntity.getUserId();
+    }
+
+    private void validateRequest(UserDto dto) {
+        Map<String, List<String>> errors = new HashMap<>();
+
+        if (dto.getEmail() == null || dto.getEmail().isBlank()) {
+            errors.put("email", List.of("The Email field is required."));
+        }
+        if (dto.getIsEnabled() == null) {
+            errors.put("enabled", List.of("The Enabled field is required."));
+        }
+        if (dto.getPassword() == null || dto.getPassword().isBlank()) {
+            errors.put("password", List.of("The Password field is required."));
+        }
+
+        if (!errors.isEmpty()) {
+            throw new ValidationException("Validation failed", errors);
+        }
+    }
+    private void validateBusiness(UserEntity userEntity) {
+      //  Map<String, List<String>> errors = new HashMap<>();
+
+
+        if (userRepo.findByEmail(userEntity.getEmail()).isPresent()) {
+           // errors.put("Email", List.of("Email Already Exists"));
+            throw new UserExistException("Email Already Exists");
+        }
+
+//        if (!errors.isEmpty()) {
+//            throw new ValidationException("Validation failed", errors);
+//        }
+    }
 
 
 

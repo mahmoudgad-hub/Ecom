@@ -1,6 +1,7 @@
 package com.example.ecom.dto;
 
 
+import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ public class UserDto  {
 
     private String email;
     private String password;
+    private String phoneNumber;
     private Boolean isEnabled;
     private Boolean isAccountNonLocked;
     private Boolean isAccountNonExpired;
