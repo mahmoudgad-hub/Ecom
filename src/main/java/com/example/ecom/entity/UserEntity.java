@@ -31,6 +31,9 @@ public class UserEntity extends AuditEntity {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "PHONE_NUMBER")
+    private String phoneNumber;
+
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isEnabled;
 
