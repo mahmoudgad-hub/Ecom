@@ -1,0 +1,18 @@
+Index: src/main/java/com/example/ecom/dto/UserDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.ecom.dto;\r\n\r\n\r\nimport jakarta.persistence.Column;\r\nimport lombok.Getter;\r\nimport lombok.Setter;\r\n\r\nimport java.util.Date;\r\n\r\n@Getter\r\n@Setter\r\npublic class UserDto  {\r\n\r\n    private String email;\r\n    private String password;\r\n    private String phoneNumber;\r\n    private Boolean isEnabled;\r\n    private Boolean isAccountNonLocked;\r\n    private Boolean isAccountNonExpired;\r\n    private Date lastLoginDate;\r\n\r\n   // private ProfileDto  ProfileDto;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/ecom/dto/UserDto.java b/src/main/java/com/example/ecom/dto/UserDto.java
+--- a/src/main/java/com/example/ecom/dto/UserDto.java	(revision f63d42b44d876b418d491795a09c5d1350269e43)
++++ b/src/main/java/com/example/ecom/dto/UserDto.java	(date 1752768741169)
+@@ -1,7 +1,6 @@
+ package com.example.ecom.dto;
+ 
+ 
+-import jakarta.persistence.Column;
+ import lombok.Getter;
+ import lombok.Setter;
+ 
