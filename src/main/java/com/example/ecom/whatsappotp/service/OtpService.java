@@ -1,12 +1,9 @@
 package com.example.ecom.whatsappotp.service;
 
 
-import com.example.ecom.entity.ProfileEntity;
 import com.example.ecom.entity.UserEntity;
 import com.example.ecom.exception.user.UserExistException;
-import com.example.ecom.repository.ProfileRepo;
 import com.example.ecom.repository.UserRepo;
-import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +21,6 @@ public class OtpService {
 
     @Autowired
     private final UserRepo userRepo;
-
-    @Autowired
-    private ProfileRepo profileRepo;
 
     public OtpService(UserRepo userRepo) {
 
@@ -56,13 +50,11 @@ System.out.println(toNumber+"        "+otp);
 
     private void saveOtp(String toNumber, String otp) {
 
-        Optional<ProfileEntity> profileEntityOptional= profileRepo.findByPhoneNumber(toNumber);
-        if(profileEntityOptional.isEmpty()){
+        Optional<UserEntity> userEntity= userRepo.findByPhoneNumber(toNumber);
+        if(userEntity.isEmpty()){
             //TODO: add exception handler
-            throw new UserExistException("No profile found for this user ID");
+            throw new UserExistException("No found for this user ID");
         }else{
-            Optional<UserEntity> userEntity= userRepo.findById(profileEntityOptional.get().getUserId());
-
             UserEntity userEnt = userEntity.get();
             userEnt.setOtpCode(otp);
             userEnt.setCreatedAt(LocalDateTime.now());
