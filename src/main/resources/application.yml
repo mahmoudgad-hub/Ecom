@@ -10,6 +10,7 @@ spring:
     username: A234491B
     password: XFS934PK5R2X
     driver-class-name: oracle.jdbc.OracleDriver
+
   jpa:
     show-sql: true
 
