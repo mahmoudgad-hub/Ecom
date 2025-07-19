@@ -120,7 +120,7 @@ public class UserService {
 
     private void validateUniqueEmail(String email) {
         if (userRepo.findByEmail(email).isPresent()) {
-            throw new UserExistException(messageUtil.get("Email_Already_Exists"));
+            throw new UserExistException(messageUtil.get("gen.mail_Already_Exists"));
         }
     }
 
