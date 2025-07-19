@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe3138b2-de80-41a9-93e9-c4f3eef07a3f" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/Lang/DbMessageSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/Lang/LocaleConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/Lang/MessageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/dto/UserDtoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/LovController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/dto/LovDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/LovRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/LovService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/ProfileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/dto/ProfileDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/ProfileEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/exception/ExceptionHandlerAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/exception/ExceptionHandlerAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/ProfileRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/UserRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/ProfileService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/whatsappotp/service/OtpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/whatsappotp/service/OtpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/dto/ProfileDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/ProfileEntity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/UserEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/exception/ExceptionHandlerAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/exception/ExceptionHandlerAdvice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/repository/ProfileRepo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/repository/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/repository/UserRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/service/ProfileService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/whatsappotp/service/OtpService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/whatsappotp/service/OtpService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752779299829</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commit">
+      <option name="closed" value="true" />
+      <created>1752881005340</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1752881005340</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
