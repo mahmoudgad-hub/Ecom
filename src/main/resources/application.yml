@@ -2,14 +2,14 @@ spring:
   application:
     name: ecom
   datasource:
-        url: jdbc:oracle:thin:@//localhost:1521/orcl
-        username: hr
-        password: hr
-        driver-class-name: oracle.jdbc.OracleDriver
-#    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
-#    username: A234491B
-#    password: XFS934PK5R2X
-#    driver-class-name: oracle.jdbc.OracleDriver
+#        url: jdbc:oracle:thin:@//localhost:1521/orcl
+#        username: hr
+#        password: hr
+#        driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
+    username: A234491B
+    password: XFS934PK5R2X
+    driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     show-sql: true
 
