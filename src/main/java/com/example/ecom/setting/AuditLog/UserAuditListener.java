@@ -1,5 +1,6 @@
 package com.example.ecom.setting.AuditLog;
 
+import com.example.ecom.auth.CurrentUser;
 import jakarta.persistence.*;
 
 import java.lang.reflect.Field;
@@ -45,8 +46,9 @@ public class UserAuditListener {
         }
     }
 
-    private String getCurrentUser() {
-        return "system"; // أو خده من Spring Security JWT Token
+    private Long getCurrentUser() {
+
+        return CurrentUser.getUserId(); // أو خده من Spring Security JWT Token
     }
 }
 

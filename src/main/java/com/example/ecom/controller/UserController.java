@@ -27,10 +27,10 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUserById(@PathVariable Long userId){
         // public ResponseEntity<Map<String, Object>> getUserById(@PathVariable Long userId) {
-        UserDto userDto =   userService.readById(userId);
+        UserDtoResponse userDtoResponse =   userService.readById(userId);
 
         Map<String, Object> result = new HashMap<>();
-        result.put("data", userDto);
+        result.put("data", userDtoResponse);
 
         return ResponseEntity.ok(result);
 
@@ -47,7 +47,7 @@ public class UserController {
     }*/
 @GetMapping("")
 public ResponseEntity<Map<String, Object>> getAllUsers() {
-    List<UserDto> users = userService.getUserAll();
+    List<UserDtoResponse> users = userService.getUserAll();
 
     Map<String, Object> response = new HashMap<>();
     response.put("data", users);

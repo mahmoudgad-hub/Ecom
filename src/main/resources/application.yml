@@ -2,15 +2,14 @@ spring:
   application:
     name: ecom
   datasource:
-#        url: jdbc:oracle:thin:@//localhost:1521/orcl
-#        username: hr
-#        password: hr
-#        driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
-    username: A234491B
-    password: XFS934PK5R2X
-    driver-class-name: oracle.jdbc.OracleDriver
-
+        url: jdbc:oracle:thin:@//localhost:1521/orcl
+        username: hr
+        password: hr
+        driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
+#    username: A234491B
+#    password: XFS934PK5R2X
+#    driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     show-sql: true
 
@@ -22,9 +21,15 @@ twilio:
   account:
     sid: ACbfd97d6d8a249d013fdc77d71dcd1d06
   auth:
-    token: 5319ed08953aad8e6cc6102db0d389f6
+    token: d7c4e8260999f834c8bb699eec5b14c8
   whatsapp:
     from: whatsapp:+14155238886
+
+jwt:
+  secret: Vg#r82mWz&1Lq$9d!ApBkE6sTfYhN0X3CuMzQaJvPoR7UcXs
+  accessExpiration: 2592000 # (1 ساعة)
+  refreshExpiration: 2592000 # (1 ساعة)
+
 
 
 #security:

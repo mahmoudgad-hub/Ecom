@@ -11,6 +11,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -46,7 +47,7 @@ import java.util.*;
 public class UserEntity extends AuditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USER_SEQ_GENERATOR")
-    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "A234491B.ECOM_USERS_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "USER_SEQ_GENERATOR", sequenceName = "hr.ECOM_USERS_TAB_SEQ", allocationSize = 1)
     @Column(name = "USER_ID")
     private Long userId;
 
@@ -69,7 +70,7 @@ public class UserEntity extends AuditEntity {
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isAccountNonExpired;
 
-    private Date lastLoginDate;
+    private LocalDateTime lastLoginDate;
 
     private String otpCode;
     private LocalDateTime createdAt;
@@ -108,6 +109,7 @@ public class UserEntity extends AuditEntity {
     @Column(name = "N_TIPS_AVAILABLE")
     private Boolean isNTipsAvailable;
 
+    private String role;
 
     @Override
     public String toString() {
@@ -129,8 +131,9 @@ public class UserEntity extends AuditEntity {
     @PreUpdate
     public void encodePassword() {
         if (password != null && !password.startsWith("$2a$")) { // لو مش مشفّر أصلاً
-           // password = passwordEncoder.encode(password);
-            password="45646fddfds6f4sddfsfwe666";
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+           password =   encoder.encode(password);
+            role = "ADMIN";
         }
     }
 }
