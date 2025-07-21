@@ -1,7 +1,6 @@
 package com.example.ecom.repository;
 
 import com.example.ecom.dto.LovDto;
-import org.apache.commons.codec.language.bm.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Repository
-public class LovRepository {
+public class LovRepo {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;

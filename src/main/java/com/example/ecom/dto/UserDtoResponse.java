@@ -39,7 +39,7 @@ public class UserDtoResponse {
     private Boolean isEnabled;
     private Boolean isAccountNonLocked;
     private Boolean isAccountNonExpired;
-    private Date lastLoginDate;
+    private LocalDateTime lastLoginDate;
     private String fullName;
     private Date dateOfBirth;
     private Long gender;

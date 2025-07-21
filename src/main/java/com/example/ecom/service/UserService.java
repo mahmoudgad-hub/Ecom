@@ -1,7 +1,6 @@
 package com.example.ecom.service;
 
 
-import com.example.ecom.Lang.DbMessageSource;
 import com.example.ecom.Lang.MessageUtil;
 import com.example.ecom.dto.UserDto;
 import com.example.ecom.dto.UserDtoResponse;
@@ -11,31 +10,28 @@ import com.example.ecom.exception.user.UserExistException;
 import com.example.ecom.exception.user.UserNotFoundException;
 import com.example.ecom.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-    Locale locale = null;
+
     @Autowired
     private UserRepo userRepo;
 
     @Autowired
-    private DbMessageSource dbMessageSource;
-
-    @Autowired
     private MessageUtil messageUtil;
 
-    public UserDto readById(Long userId) {
+    public UserDtoResponse readById(Long userId) {
         UserEntity user = userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException("NO DATA FOUND USER"));
-        return mapToDto(user);
+        return mapToDtoResponse(user);
     }
 
     public Page<UserEntity> readAll(int pageNumber, int pageSize) {
@@ -64,13 +60,13 @@ public class UserService {
 //        }
 //    }
     @Transactional(readOnly = true)
-    public List<UserDto> getUserAll() {
-        List<UserEntity> users = userRepo.findAll();
-        if (users.isEmpty()) {
+    public List<UserDtoResponse> getUserAll() {
+        List<UserEntity> userEntities = userRepo.findAll();
+        if (userEntities.isEmpty()) {
             throw new UserNotFoundException("No users found");
         }
-        return users.stream()
-                .map(this::mapToDto)
+        return userEntities.stream()
+                .map(this::mapToDtoResponse)
                 .collect(Collectors.toList());
     }
 
@@ -81,7 +77,7 @@ public class UserService {
         validateUniqueEmail(userEntity.getEmail());
         userRepo.save(userEntity);
 
-        return mapToDtoRespose(userEntity);
+        return mapToDtoResponse(userEntity);
     }
 
     public void update(Long userId, UserDto userDto) {
@@ -121,6 +117,20 @@ public class UserService {
     private void validateUniqueEmail(String email) {
         if (userRepo.findByEmail(email).isPresent()) {
             throw new UserExistException(messageUtil.get("gen.mail_Already_Exists"));
+        }
+    }
+
+    public void saveLastLogin(Long userid) {
+
+        Optional<UserEntity> userEntity = userRepo.findById(userid);
+        if (userEntity.isEmpty()) {
+            //TODO: add exception handler
+            throw new UserExistException("No found for this user ID");
+        } else {
+            UserEntity userEnt = userEntity.get();
+            userEnt.setLastLoginDate(LocalDateTime.now());
+            userRepo.save(userEnt);
+
         }
     }
 
@@ -176,7 +186,7 @@ public class UserService {
         return dto;
     }
 
-    public UserDtoResponse mapToDtoRespose(UserEntity entity) {
+    public UserDtoResponse mapToDtoResponse(UserEntity entity) {
         UserDtoResponse dto = new UserDtoResponse();
         dto.setEmail(entity.getEmail());
         dto.setPhoneNumber(entity.getPhoneNumber());
@@ -224,5 +234,6 @@ public class UserService {
         entity.setIsNServiceAvailable(dto.getIsNServiceAvailable());
         entity.setIsNTipsAvailable(dto.getIsNTipsAvailable());
     }
+
 
 }

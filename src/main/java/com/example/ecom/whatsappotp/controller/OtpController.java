@@ -31,7 +31,7 @@ public class OtpController {
     }
 
     @PostMapping("/verify")
-    public ResponseEntity<String> verifyOtp(@RequestParam Long phoneNumber, @RequestParam String otp) {
+    public ResponseEntity<String> verifyOtp(@RequestParam String phoneNumber, @RequestParam String otp) {
         boolean valid = otpService.verifyOtp(phoneNumber, otp);
         if (valid) {
             return ResponseEntity.ok("✅ OTP is valid");

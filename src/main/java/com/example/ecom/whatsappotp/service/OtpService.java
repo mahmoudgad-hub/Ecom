@@ -69,8 +69,8 @@ System.out.println(toNumber+"        "+otp);
 
     }
 
-    public boolean verifyOtp(Long phoneNumber, String otp) {
-        return userRepo.findById(phoneNumber)
+    public boolean verifyOtp(String phoneNumber, String otp) {
+        return userRepo.findByPhoneNumber(phoneNumber)
                 .filter(o -> o.getOtpCode().equals(otp))
                 .filter(o -> o.getExpiresAt().isAfter(LocalDateTime.now()))
                 .isPresent();
