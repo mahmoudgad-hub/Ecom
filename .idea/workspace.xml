@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe3138b2-de80-41a9-93e9-c4f3eef07a3f" name="Changes" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_17_2025_7_13_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_17_2025_7_13_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/AddressEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/AddressEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/PaymentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/PaymentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/AuditLog/AuditLogEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/AuditLog/AuditLogEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/AddressEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/AddressEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/PaymentEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/entity/PaymentEntity.class" afterDir="false" />
@@ -40,33 +47,33 @@
     &quot;assignee&quot;: &quot;mahmoudgad-hub&quot;
   }
 }</component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDOPNIMWc6fr5j0",
-        "number": 9
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOPNIMWc6fr5j0&quot;,
+        &quot;number&quot;: 9
       },
-      "lastSeen": 1752936483773
+      &quot;lastSeen&quot;: 1752936483773
     }
   ]
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/mahmoudgad-hub/Ecom.git",
-    "accountId": "050fcf66-28a0-4df1-81ed-92bc796ba834"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/mahmoudgad-hub/Ecom.git&quot;,
+    &quot;accountId&quot;: &quot;050fcf66-28a0-4df1-81ed-92bc796ba834&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "mahmoudgad-hub",
-    "repository": "Ecom"
+    &quot;owner&quot;: &quot;mahmoudgad-hub&quot;,
+    &quot;repository&quot;: &quot;Ecom&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/example/ecom/auth/config/SecurityConfig.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -85,17 +92,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EcomApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#9 on dev",
-    "ignore.virus.scanning.warn.message": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EcomApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#9 on dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.ecom.auth" />
@@ -268,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753130950598</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="commit">
+      <option name="closed" value="true" />
+      <created>1753131508968</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1753131508968</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

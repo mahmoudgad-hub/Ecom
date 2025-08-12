@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class AuditLogEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "AUDIT_LOG_SEQ_GENERATOR")
-    @SequenceGenerator(name = "AUDIT_LOG_SEQ_GENERATOR", sequenceName = "A234491B.ECOM_AUDIT_LOG_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "AUDIT_LOG_SEQ_GENERATOR", sequenceName = "ECOM_AUDIT_LOG_TAB_SEQ", allocationSize = 1)
     @Column(name = "AUDIT_ID")
     private Long id;
 
