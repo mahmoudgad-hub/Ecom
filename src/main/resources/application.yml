@@ -6,12 +6,22 @@ spring:
 #        username: hr
 #        password: hr
 #        driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
-    username: A234491B
-    password: XFS934PK5R2X
-    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@//green.maxapex.net:1555/XEPDB1
+#    username: A234491B
+#    password: XFS934PK5R2X
+#    driver-class-name: oracle.jdbc.OracleDriver
+      url: jdbc:postgresql://dpg-d206rcfgi27c73c7v2pg-a.frankfurt-postgres.render.com:5432/ecomdb_6fzy
+      username: ecomdb_6fzy_user
+      password: LuSIO6zenqtkW6GyscbW98emyydMqUFr
+      driver-class-name: org.postgresql.Driver
+
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
 
 
 server:

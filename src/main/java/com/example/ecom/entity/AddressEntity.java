@@ -19,7 +19,7 @@ public class AddressEntity extends AuditEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "ADDRESS_SEQ_GENERATOR")
-    @SequenceGenerator(name = "ADDRESS_SEQ_GENERATOR", sequenceName = "A234491B.ECOM_ADDRESS_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "ADDRESS_SEQ_GENERATOR", sequenceName = "ECOM_ADDRESS_TAB_SEQ", allocationSize = 1)
     @Column(name = "ADDRESS_ID")
     private Long addressId;
 

@@ -17,7 +17,7 @@ import java.util.Date;
 public class PaymentEntity extends AuditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "PAYMENT_SEQ_GENERATOR")
-    @SequenceGenerator(name = "PAYMENT_SEQ_GENERATOR", sequenceName = "A234491B.ECOM_PAYMENT_TAB_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "PAYMENT_SEQ_GENERATOR", sequenceName = "ECOM_PAYMENT_TAB_SEQ", allocationSize = 1)
     @Column(name = "PAYMENT_ID")
     private Long paymentId;
 
