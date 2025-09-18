@@ -63,7 +63,7 @@ public class AddressService {
 
     public void updateAddress(Long addressId, AddressDto addressDto) {
         AddressEntity addressEntity = addressRepo.findById(addressId)
-                .orElseThrow(() -> new UserExistException(messageUtil.get("user.user_not_found")));
+                .orElseThrow(() -> new UserExistException(messageUtil.get("address.address_not_found")));
 
         addressEntity.setAddressName(addressDto.getAddressName());
         addressEntity.setLatitude(addressDto.getLatitude());
@@ -77,7 +77,7 @@ public class AddressService {
 
     public void deleteAddress(Long addressId) {
         AddressEntity addressEntity = addressRepo.findById(addressId)
-                .orElseThrow(() -> new UserNotFoundException(messageUtil.get("user.user_not_found")));
+                .orElseThrow(() -> new UserNotFoundException(messageUtil.get("address.address_not_found")));
         addressRepo.delete(addressEntity);
     }
 

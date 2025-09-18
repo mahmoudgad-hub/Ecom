@@ -17,6 +17,7 @@ public class DbMessageSource implements MessageSource {
     @Override
     public String getMessage(String code, Object[] args, String defaultMessage, Locale locale) {
         try {
+//            System.out.println(locale.getLanguage());
             String lang = locale.getLanguage();
             String query = "SELECT " + (lang.equals("ar") ? "AR_MESSAGE" : "EN_MESSAGE") + " FROM ECOM_TRANSLATIONS_TAB  WHERE code = ?";
             return jdbcTemplate.queryForObject(query, new Object[]{code}, String.class);

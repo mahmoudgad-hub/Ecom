@@ -39,6 +39,7 @@ public abstract class AuditEntity {
     @PreUpdate
     public void preUpdate() {
         System.out.println("preeeeeeeeeeeeeeeee");
+
         this.updatedBy = CurrentUser.getUserId();
         this.updatedDate = LocalDateTime.now();
     }

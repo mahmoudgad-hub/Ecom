@@ -38,6 +38,7 @@ public class AddressController {
         List<AddressDtoResponse>   addressDtoResponse =   addressService.readAddressByUserId();
         Map<String, Object> result = new HashMap<>();
         result.put("data", addressDtoResponse);
+        result.put("count", addressDtoResponse.size());
 
         return ResponseEntity.ok(result);
     }
@@ -45,7 +46,7 @@ public class AddressController {
     public ResponseEntity<Map<String, Object>> deleteAddressById(@PathVariable Long addressId) {
         addressService.deleteAddress(addressId);
         Map<String, Object> response = new HashMap<>();
-        response.put("message", "User deleted successfully");
+        response.put("message", messageUtil.get("address.address_deleted_success"));
         return ResponseEntity.ok(response);
     }
 
@@ -53,7 +54,7 @@ public class AddressController {
     public ResponseEntity<Map<String, Object>> updateAddressById(@PathVariable Long addressId, @RequestBody AddressDto addressDto) {
         addressService.updateAddress(addressId,addressDto) ;
         Map<String, Object> response = new HashMap<>();
-        response.put("message", "User updated successfully");
+        response.put("message", messageUtil.get("address.address_updated_success"));
 
         return ResponseEntity.ok(response);
     }
@@ -64,7 +65,7 @@ public class AddressController {
 
         Map<String, Object> response = new HashMap<>();
         response.put("data", addressDtoResponse);
-        response.put("message", messageUtil.get("user.user_created_success"));
+        response.put("message", messageUtil.get("address.address_created_success"));
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
