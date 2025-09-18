@@ -1,11 +1,15 @@
 package com.example.ecom.controller;
 
+import com.example.ecom.Lang.MessageUtil;
 import com.example.ecom.auth.CustomUserDetails;
 import com.example.ecom.auth.config.JwtConfig;
 import com.example.ecom.auth.config.JwtUtil;
+import com.example.ecom.dto.ApiResponseDto;
 import com.example.ecom.dto.UserDto;
 import com.example.ecom.dto.UserDtoResponse;
+import com.example.ecom.entity.UserEntity;
 import com.example.ecom.service.CustomUserDetailsService;
+import com.example.ecom.service.LoginAttemptService;
 import com.example.ecom.service.TokenBlacklistService;
 import com.example.ecom.service.UserService;
 import com.example.ecom.whatsappotp.service.OtpService;
@@ -18,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,10 +56,23 @@ public class LoginController {
     @Autowired
     private  OtpService otpService;
 
+    @Autowired
+    private LoginAttemptService  loginAttemptService;
+
+    @Autowired
+    private MessageUtil messageUtil;
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
+       String checkStatusAccountLock = loginAttemptService.checkStatusAccountLock(request.getUsername());
+       if (checkStatusAccountLock.equals("423")  ) {
+           return ResponseEntity.status(HttpStatus.LOCKED).body(new ApiResponseDto<>(423, messageUtil.get("sys.account_Locked"), null));
+       }
+        try {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+
+        loginAttemptService.resetFailedAttempts(request.getUsername());
         CustomUserDetails customUserDetails = (CustomUserDetails) customUserDetailsService.loadUserByUsername(request.getUsername());
 
         String generateToken = jwtUtil.generateToken(customUserDetails.getUsername(), customUserDetails.getUserId(), customUserDetails.getFullName());
@@ -84,14 +102,13 @@ public class LoginController {
         return ResponseEntity.ok(result);
 //        TokenWrapper tokenWrapper = new TokenWrapper(response);
 //        return ResponseEntity.ok(tokenWrapper);
-
-
-        //        response.put("message", messageUtil.get("user.user_created_success"));
-//
+//        response.put("message", messageUtil.get("user.user_created_success"));
 //        return new ResponseEntity<>(response, HttpStatus.CREATED);
+//        return ResponseEntity.ok(new AuthResponse(generateToken));
 
-        /////////////////////////////
-        //return ResponseEntity.ok(new AuthResponse(generateToken));
+        } catch (BadCredentialsException ex) {
+            return loginAttemptService.checkUserAttempt(request.username);
+        }
     }
 
     @PostMapping("/logout")

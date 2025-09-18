@@ -38,13 +38,15 @@ public class SecurityConfig {
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/address/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/api/lov/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/data/**").permitAll()
                         // .anyRequest().authenticated()
                          .anyRequest().denyAll()
 
                 )
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(customAuthenticationEntryPoint)
-                        .accessDeniedHandler(customAccessDeniedHandler) // هنا
+                        .accessDeniedHandler(customAccessDeniedHandler)
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 

@@ -64,11 +64,14 @@ public class UserEntity extends AuditEntity {
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isEnabled;
 
-    @Convert(converter = BooleanToYNConverter.class)
-    private Boolean isAccountNonLocked;
+     @Convert(converter = BooleanToYNConverter.class)
+    private Boolean isAccountNonLocked ;//= true;
 
     @Convert(converter = BooleanToYNConverter.class)
     private Boolean isAccountNonExpired;
+
+    @Column(name = "failed_attempt" , nullable = false)
+    private Integer  failedAttempt  = 0;
 
     private LocalDateTime lastLoginDate;
 
