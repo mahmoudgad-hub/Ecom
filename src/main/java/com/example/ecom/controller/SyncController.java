@@ -11,6 +11,8 @@ import com.example.ecom.repository.UserRepo;
 import com.example.ecom.service.UserService;
 import com.example.ecom.setting.AuditLog.AuditLogEntity;
 import com.example.ecom.setting.AuditLog.AuditLogRepo;
+import com.example.ecom.setting.Request_logs.RequestLogEntity;
+import com.example.ecom.setting.Request_logs.RequestLogRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +39,11 @@ public class SyncController {
     public UserService userService ;
 
     @Autowired
+    public RequestLogRepo requestLogRepo ;
+
+
+
+    @Autowired
     private MessageUtil messageUtil;
 
 
@@ -45,13 +52,14 @@ public class SyncController {
         List<UserEntity> userEntities = userRepo.findAll();
         List<AddressEntity> addressEntities   = addressRepo.findAll();
         List<AuditLogEntity>   auditLogEntities  = auditLogRepo.findAll();
-
+        List<RequestLogEntity>  requestLogEntities  = requestLogRepo.findAll();
 
 
         Map<String, Object> response = new HashMap<>();
         response.put("User", userEntities);
         response.put("Address", addressEntities);
         response.put("AuditLog", auditLogEntities);
+        response.put("RequestLog", requestLogEntities);
 
 
         return ResponseEntity.ok(response);
