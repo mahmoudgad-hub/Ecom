@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe3138b2-de80-41a9-93e9-c4f3eef07a3f" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/Request_logs/RequestLogEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/Request_logs/RequestLogRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/Request_logs/RequestLoggingInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/setting/Request_logs/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/SyncController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/SyncController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/repository/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/LoginAttemptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/ecom/service/LoginAttemptService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthRequestWithOtp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthRequestWithOtp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController$AuthResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/ecom/service/LoginAttemptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/ecom/service/LoginAttemptService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758176797213</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="commit">
+      <option name="closed" value="true" />
+      <created>1758486370262</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1758486370262</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
